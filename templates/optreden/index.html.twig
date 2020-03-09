@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Artist index{% endblock %}
+{% block title %}Optreden index{% endblock %}
 
 {% block body %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -13,10 +13,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/default">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/artist">Artist</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/optreden">Acts</a>
                 </li>
                 <li class="nav-item">
@@ -25,39 +25,41 @@
             </ul>
         </div>
     </nav>
-
     <br>
-    <h1>Artist index</h1>
+
+    <h1>Optreden index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Genre</th>
-                <th>Price</th>
+                <th>Date</th>
+                <th>Kickoff</th>
+                <th>Hall</th>
+                <th>MaxSeats</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for artist in artists %}
+        {% for optreden in optredens %}
             <tr>
-                <td>{{ artist.id }}</td>
-                <td>{{ artist.name }}</td>
-                <td>{{ artist.Genre }}</td>
-                <td>{{ artist.Price }}</td>
+                <td>{{ optreden.id }}</td>
+                <td>{{ optreden.Date ? optreden.Date|date('Y-m-d') : '' }}</td>
+                <td>{{ optreden.kickoff ? optreden.kickoff|date('H:i:s') : '' }}</td>
+                <td>{{ optreden.hall }}</td>
+                <td>{{ optreden.maxSeats }}</td>
                 <td>
-                    <a href="{{ path('artist_show', {'id': artist.id}) }}">show</a>
-                    <a href="{{ path('artist_edit', {'id': artist.id}) }}">edit</a>
+                    <a href="{{ path('optreden_show', {'id': optreden.id}) }}">show</a>
+                    <a href="{{ path('optreden_edit', {'id': optreden.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('artist_new') }}">Create new</a>
+    <a href="{{ path('optreden_new') }}">Create new</a>
 {% endblock %}

@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome to MusicList!{% endblock %}
+{% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    .container-fluid { text-align: center;}
 </style>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <a class="navbar-brand" href="#">MusicList!</a>
@@ -15,7 +14,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/default">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -25,21 +24,10 @@
                     <a class="nav-link" href="/optreden">Acts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link active" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="/img/banner.png" alt="First slide">
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="container-fluid">
-    <h1>Opzoek naar een optreden van jou favoriete artiest?</h1>
-        <p>Dan bent u hier bij het juiste adres!</p>
-    </div>
+
 {% endblock %}
