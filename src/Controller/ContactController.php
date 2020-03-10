@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+
+use App\Form\ContactType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
@@ -12,8 +14,10 @@ class ContactController extends AbstractController
      */
     public function index()
     {
-        return $this->render('contact/index.html.twig', [
-            'controller_name' => 'ContactController',
+        $form = $this->createForm(ContactType::class);
+
+        return $this->render('contact/contact.html.twig', [
+            'our_form' => $form->createView(),
         ]);
     }
 }
